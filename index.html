@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Student Task Manager</h1>
+    <p>Catat, kelola, dan pantau tugas perkuliahan Anda.</p>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Tambah Tugas</h2>
+      <form id="task-form" novalidate>
+        <div class="field">
+          <label for="task-name">Nama tugas</label>
+          <input id="task-name" type="text" maxlength="100" autocomplete="off" placeholder="Contoh: Tugas I PABWE">
+          <p class="error" id="error-name" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="task-course">Mata kuliah</label>
+          <input id="task-course" type="text" maxlength="60" autocomplete="off" placeholder="Contoh: Pengembangan Aplikasi Berbasis Web">
+          <p class="error" id="error-course" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="task-deadline">Tenggat waktu</label>
+          <input id="task-deadline" type="date">
+          <p class="error" id="error-deadline" role="alert"></p>
+        </div>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn primary">Tambah Tugas</button>
+          <button type="button" id="cancel-btn" class="btn" hidden>Batal</button>
+        </div>
+      </form>
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">Daftar Tugas</h2>
+        <span id="summary" class="summary"></span>
+      </div>
+      <div class="filters" role="group" aria-label="Filter status tugas">
+        <button type="button" class="btn filter active" data-filter="all">Semua</button>
+        <button type="button" class="btn filter" data-filter="active">Belum selesai</button>
+        <button type="button" class="btn filter" data-filter="done">Selesai</button>
+      </div>
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-message" class="empty" hidden></p>
+    </section>
+  </main>
+
+  <footer class="app-footer">Data disimpan di browser Anda (localStorage).</footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
